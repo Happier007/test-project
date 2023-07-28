@@ -1,0 +1,28 @@
+.project-details {
+    padding: var(--space-m);
+
+    &__title {
+        font-size: var(--font-size-l);
+        text-align: center;
+        margin-bottom: var(--space-m);
+    }
+
+    &__row {
+        display: flex;
+        justify-content: space-between;
+        margin: var(--space-m) 0;
+    }
+
+    &__label {
+        color: var(--font-color-gray);
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+
+        &__btn {
+            width: 10rem;
+        }
+    }
+}

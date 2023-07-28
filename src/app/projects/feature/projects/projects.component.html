@@ -1,0 +1,35 @@
+<section class="projects">
+    <div class="projects__list">
+        <div
+            class="projects__item"
+            *ngFor="let project of projects()"
+            [routerLink]="project.id"
+        >
+            <div class="projects__item__date">
+                {{project | mapper: formatDate}}
+            </div>
+
+            <div class="projects__item__name">
+                {{project.subject}}
+            </div>
+
+            <div class="projects__item__author">
+                {{project.createdBy}}
+            </div>
+        </div>
+
+        <div class="projects__item" *ngIf="!projects().length">
+            <div class="projects__item__name">
+                No projects found
+            </div>
+        </div>
+    </div>
+
+    <div class="project__details">
+        <router-outlet #outlet="outlet"></router-outlet>
+
+        <p *ngIf="!outlet.isActivated">
+            Please chose project to see details
+        </p>
+    </div>
+</section>

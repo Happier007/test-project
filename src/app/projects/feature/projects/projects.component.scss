@@ -1,0 +1,35 @@
+.projects {
+    display: grid;
+    grid-template-columns: 30% 1fr;
+    gap: var(--space-l);
+
+    &__list {
+        border: 2px solid var(--bg-black);
+        height: calc(100vh - 100px);
+        overflow-y: auto;
+    }
+
+    &__item {
+        padding: var(--space-s);
+        cursor: pointer;
+        border-bottom: 1px solid var(--bg-black);
+        transition: background-color var(--duration);
+
+        &__date, &__author {
+            color: var(--font-color-gray);
+            font-size: var(--font-size-s);
+        }
+
+        &__author {
+            text-align: end;
+        }
+
+        &__name {
+            font-size: var(--font-size-l);
+        }
+
+        &:hover {
+            background-color: var(--bg-light-gray);
+        }
+    }
+}

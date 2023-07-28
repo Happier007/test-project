@@ -1,0 +1,10 @@
+.main {
+    &__navigation {
+        display: flex;
+        justify-content: center;
+    }
+
+    &__content {
+        margin-top: var(--space-l);
+    }
+}

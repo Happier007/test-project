@@ -1,0 +1,9 @@
+/* You can add global styles to this file, and also import other style files */
+@import "./variables/variables";
+
+html,
+body {
+    height: 100%;
+    background: var(--bg-white);
+    font-size: var(--font-size-m);
+}

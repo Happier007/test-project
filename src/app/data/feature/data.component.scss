@@ -1,0 +1,30 @@
+.data {
+    $size: 20rem;
+
+    margin: auto;
+    width: 50%;
+
+    &__label {
+        display: block;
+    }
+
+    &__text {
+        width: 100%;
+        height: $size;
+        margin: var(--space-s) 0 var(--space-m);
+    }
+
+    &__error-message {
+        color: var(--font-color-red);
+    }
+
+    &__actions {
+        display: flex;
+        justify-content: center;
+        gap: var(--space-m);
+
+        &__submit {
+            width: calc(#{$size} / 2);
+        }
+    }
+}

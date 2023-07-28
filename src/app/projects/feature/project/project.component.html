@@ -1,0 +1,87 @@
+<div
+    *ngIf="project() as project"
+    class="project-details"
+    [formGroup]="form"
+>
+    <div class="project-details__title">
+        <ng-container *ngIf="isViewMode() else editTemplate">
+            {{project.subject}}
+        </ng-container>
+
+        <ng-template #editTemplate>
+            <input type="text" formControlName="subject">
+        </ng-template>
+    </div>
+
+    <div class="project-details__row">
+        <ng-container
+            [ngTemplateOutlet]="itemTemplate"
+            [ngTemplateOutletContext]="{
+                label: 'Дата начала',
+                value: project.startDate | date: dateFormat,
+                control: startDate
+            }"
+        ></ng-container>
+
+
+        <ng-container
+            [ngTemplateOutlet]="itemTemplate"
+            [ngTemplateOutletContext]="{
+                label: 'Дата окончания',
+                value: project.endDate | date: dateFormat,
+                control: endDate
+            }"
+        ></ng-container>
+
+        <ng-container
+            [ngTemplateOutlet]="itemTemplate"
+            [ngTemplateOutletContext]="{
+                label: 'Автор',
+                value: project.createdBy,
+                control: createdBy
+            }"
+        ></ng-container>
+    </div>
+
+    <ng-container
+        [ngTemplateOutlet]="itemTemplate"
+        [ngTemplateOutletContext]="{
+            label: 'Описание',
+            value: project.description,
+            control: description
+        }"
+    ></ng-container>
+
+    <div class="project-details__actions">
+        <button
+            *ngIf="isViewMode() else submitBtnTemplate"
+            class="project-details__actions__btn"
+            (click)="onEdit()"
+        >
+            Изменить
+        </button>
+
+        <ng-template #submitBtnTemplate>
+            <button
+                *ngIf="!isViewMode()"
+                class="project-details__actions__btn"
+                (click)="onSubmit()"
+            >
+                Сохранить
+            </button>
+        </ng-template>
+    </div>
+</div>
+
+<ng-template #itemTemplate let-label="label" let-value="value" let-control="control">
+    <div class="project-details__item">
+        <div class="project-details__label">{{label}}</div>
+        <div class="project-details__value" *ngIf="isViewMode() else editModeTemplate">
+            {{value}}
+        </div>
+
+        <ng-template #editModeTemplate>
+            <input type="text" [formControl]="control">
+        </ng-template>
+    </div>
+</ng-template>

@@ -1,0 +1,26 @@
+:root {
+    --black: #000000;
+    --white: #ffffff;
+    --red: #ff0000;
+    --gray: #808080;
+    --light-gray: #d3d3d3;
+
+    --font-color-black: var(--black);
+    --font-color-red: var(--red);
+    --font-color-gray: var(--gray);
+
+    --font-size-s: 0.75rem;
+    --font-size-m: 1rem;
+    --font-size-l: 1.5rem;
+
+    --bg-white: var(--white);
+    --bg-black: var(--black);
+    --bg-light-gray: var(--light-gray);
+
+    --space-xs: 0.25em;
+    --space-s: 0.5em;
+    --space-m: 1em;
+    --space-l: 2em;
+
+    --duration: 300ms;
+}

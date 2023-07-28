@@ -1,0 +1,32 @@
+<section class="data">
+    <label class="data__label" for="json">
+        Введите JSON:
+    </label>
+
+    <textarea
+        id="json"
+        class="data__text"
+        [formControl]="jsonControl"
+    ></textarea>
+
+    <span class="data__error-message" *ngIf="(isInvalidJson$ | async) && jsonControl.value">
+        Invalid JSON format
+    </span>
+
+    <div class="data__actions">
+        <button
+            class="data__actions__submit"
+            [disabled]="isInvalidJson$ | async"
+            (click)="onSave()"
+        >
+            Сохранить
+        </button>
+
+        <button
+            class="data__actions__submit"
+            (click)="onInsertFromJson()"
+        >
+            Вставить из JSON
+        </button>
+    </div>
+</section>
